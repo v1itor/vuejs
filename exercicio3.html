@@ -1,0 +1,30 @@
+<script src="https://unpkg.com/vue@next"></script>
+
+<div id="app">
+    <!-- 1) Mostre um resultado de 'Ainda não alcançou o resultado' enquanto a propriedade valor não for igual a 42 - você pode alterar "valor" com os botões definidos. Apena o primeiro foi programado. Mostre 'Pronto. Esta é a resposta.' ao alcançar o valor. -->
+    <div>
+        <p>Valor atual: {{ valor }}</p>
+        <button v-on:click="valor += 5">Somar 5</button>
+        <button v-on:click="valor += 1">Somar 1</button>
+        <button v-on:click="valor -= 5">Diminuir 5</button>
+        <button v-on:click="valor -= 1">Diminuir 1</button>
+        <p>{{ resultado }}</p>
+    </div>
+</div>
+
+<script>
+    const app = {
+        data() {
+            return {
+                valor: 0,
+            }
+        },
+        computed: {
+            resultado() {
+                return this.valor == 42 ? "Pronto. Esta é a resposta." : "Ainda não alcançou o resultado"
+            },
+        },
+    }
+
+    Vue.createApp(app).mount("#app")
+</script>

@@ -1,0 +1,32 @@
+<script src="https://unpkg.com/vue@next"></script>
+
+<div id="app">
+    <!-- 1) Preencha o elemento <p> com o seu nome e idade - usando Interpolação 
+      (os dados devem estar definidos no elemento data) -->
+    <p>O framework VueJS é muito interessante - {{nome}} ({{idade}})</p>
+    <!-- 2) Apresente a sua idade, multiplicada por 3 - usando interpolação -->
+    <p>{{idade*3}}</p>
+    <!-- 3) Defina e chame uma função que apresente uma mensagem de "bom dia" -->
+    <p>{{ bomDia() }}</p>
+    <!-- 4) Pre-preencha este input com o seu nome (defina o atributo "value" ou use v-model) -->
+    <div>
+        <input type="text" v-model:value=nome />
+    </div>
+</div>
+
+<script>
+    const app = {
+        data() {
+            return {
+                nome: "Vitor",
+                idade: 17,
+            }
+        },
+        methods: {
+            bomDia() {
+                return "Bom dia, " + this.nome
+            },
+        },
+    }
+    Vue.createApp(app).mount("#app")
+</script>

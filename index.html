@@ -1,0 +1,43 @@
+
+<div id="app">
+    <h1>{{title}}</h1>
+    <input type="text" v-model='text' />
+    <p>{{text.toUpperCase() }} ({{text.length}} / 200 )</p>
+    <input type="text" v-model="nome"><button v-on:click=boasVindas2()>enviar</button></br>
+    <p>{{ boasVindas() }}</p>
+    <p>{{msg}}</p>
+    <a v-bind:href="link">Mais informações</a>
+    <p>{{valor}}</p>
+    <button v-on:click="incrementar(1)">Incrementar 1</button>
+    <button v-on:click="incrementar(3)">Incrementar 3</button>
+    <button v-on:click="incrementar(5)">Incrementar 5</button>
+</div>
+
+<script src="https://unpkg.com/vue@next"></script>
+
+<script>
+    const app = {
+        data() {
+            return {
+                title: 'Primeiro exemplo VueJs' ,
+                text: 'Exemplo de mensagem.' ,
+                link: "https://v3.vuejs.org/",
+                valor: 0,
+                nome: "",
+                msg: "",
+            }
+        },
+        methods: {
+            boasVindas() {
+                return "Seja bem vindo ao mundo VueJS, " + this.nome
+            },
+            boasVindas2 () {
+                this.msg = "Seja bem vindo ao mundo VueJS, " + this.nome
+            },
+            incrementar(passo) {
+                this.valor+= passo
+            }
+        }
+    }
+    Vue.createApp(app).mount('#app')
+</script>
